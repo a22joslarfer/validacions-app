@@ -1,8 +1,7 @@
-
 <template>
   <h3>PelisFavoritas</h3>
+
   <div>
-    <h1>Favorite Movies</h1>
     <ul>
       <li v-for="pelicula in peliculasFavoritas" :key="pelicula.id">
         {{ pelicula.title }}
@@ -15,14 +14,23 @@
 import { useStore } from '@/store';
 
 export default {
-  name: 'FavoriteMovies',
   setup() {
-    const store = useStore();
+    const store = useStore(); 
+
     const peliculasFavoritas = store.getTodasLasPeliculasFavoritas();
 
     return {
-      peliculasFavoritas
+      peliculasFavoritas,
+      store 
     };
-  }
+  },
+ 
 };
 </script>
+
+<style>
+button {
+  background-color: rgb(214, 196, 196);
+  padding: 10px;
+}
+</style>
